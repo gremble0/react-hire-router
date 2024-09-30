@@ -1,15 +1,6 @@
-import { useState, useEffect } from "react";
 import PeopleList from "./components/PeopleList";
 
-export default function Dashboard({ hiredPeople }) {
-  const [people, setPeople] = useState([]);
-
-  useEffect(() => {
-    fetch("https://randomuser.me/api/?results=50")
-      .then((res) => res.json())
-      .then((body) => setPeople(body.results));
-  }, []);
-
+export default function Dashboard({ people, hiredPeople }) {
   return (
     <main className="dashboard-layout">
       <section>
