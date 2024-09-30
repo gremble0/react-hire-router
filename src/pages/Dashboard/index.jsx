@@ -1,6 +1,6 @@
 import PeopleList from "./components/PeopleList";
 
-export default function Dashboard({ people, hiredPeople }) {
+export default function Dashboard({ people, hiredPeople, setHiredPeople }) {
   return (
     <main className="dashboard-layout">
       <section>
@@ -9,7 +9,7 @@ export default function Dashboard({ people, hiredPeople }) {
       </section>
       <section>
         <h2>Hired People</h2>
-        <PeopleList people={hiredPeople} />
+        <PeopleList people={hiredPeople} setPeople={setHiredPeople} />
       </section>
     </main>
   );
