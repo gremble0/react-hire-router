@@ -6,13 +6,15 @@ export default function PersonProfile({ people, hiredPeople, setHiredPeople }) {
   const [person, setPerson] = useState(null);
   const { personUuid } = useParams();
 
-  useEffect(() => {
-    people.forEach((p) => {
-      if (p.login.uuid === personUuid) {
-        setPerson(p);
-      }
-    });
-  }, []);
+  useEffect(
+    () =>
+      people.forEach((p) => {
+        if (p.login.uuid === personUuid) {
+          setPerson(p);
+        }
+      }),
+    [],
+  );
 
   if (!person) return <p>Loading...</p>;
 

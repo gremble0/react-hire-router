@@ -5,7 +5,7 @@ export default function HireForm({ person, hiredPeople, setHiredPeople }) {
   const [wage, setWage] = useState(0);
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     navigate("/");
     if (
@@ -16,7 +16,7 @@ export default function HireForm({ person, hiredPeople, setHiredPeople }) {
       return;
 
     setHiredPeople([...hiredPeople, { ...person, wage }]);
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>

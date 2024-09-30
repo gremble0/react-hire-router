@@ -4,14 +4,12 @@ import PeopleListItem from "./PeopleListItem";
 export default function PeopleList({ people, setPeople, editable }) {
   const [editing, setEditing] = useState(false);
 
-  const handleEditClick = () => {
-    setEditing((prevEditing) => !prevEditing);
-  };
-
   return (
     <>
       {editable && (
-        <button onClick={handleEditClick}>{editing ? "Done" : "Edit"}</button>
+        <button onClick={() => setEditing((prevEditing) => !prevEditing)}>
+          {editing ? "Done" : "Edit"}
+        </button>
       )}
       <ul>
         {people.map((person) => (
