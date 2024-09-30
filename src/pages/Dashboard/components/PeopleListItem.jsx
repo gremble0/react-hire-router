@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 
-export default function PeopleListItem({ person, people, setPeople }) {
-  const firePerson = () => {
+export default function PeopleListItem({
+  person,
+  people,
+  setPeople,
+  editable,
+}) {
+  const firePerson = () =>
     setPeople(
       people.filter(
         (hiredPerson) => hiredPerson.login.uuid !== person.login.uuid,
       ),
     );
-  };
 
   return (
     <li>
@@ -16,8 +20,8 @@ export default function PeopleListItem({ person, people, setPeople }) {
           {person.name.first} {person.name.last}
         </h3>
       </Link>
-      {person.wage && <p>Wage: £{person.wage}</p>}
-      {person.wage && <button onClick={firePerson}>fire</button>}
+      {person.wage !== undefined && <p>Wage: £{person.wage}</p>}
+      {editable && <button onClick={firePerson}>fire</button>}
     </li>
   );
 }

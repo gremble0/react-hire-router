@@ -5,11 +5,15 @@ export default function Dashboard({ people, hiredPeople, setHiredPeople }) {
     <main className="dashboard-layout">
       <section>
         <h2>People</h2>
-        <PeopleList people={people} />
+        <PeopleList people={people} editable={false} />
       </section>
       <section>
         <h2>Hired People</h2>
-        <PeopleList people={hiredPeople} setPeople={setHiredPeople} />
+        <PeopleList
+          people={hiredPeople}
+          setPeople={setHiredPeople}
+          editable={true}
+        />
       </section>
     </main>
   );
